@@ -1,23 +1,32 @@
 require 'game'
 
 describe Game do 
-	let(:g) {g = Game.new}
+	let(:game) {Game.new}
+
+
+	# def roll_many(n,pins)
+	# 	n.times do
+	# 		g.roll(pins)
+	# 	end
+	# end
 
 	it 'should roll' do
-		g.roll(0)
+		game.roll(0)
 	end
 
 	it 'should roll a gutter game' do 
-		20.times do
-			g.roll(0)
-		end
-		g.score.should == 0
+		game.roll_many(20,0)
+		game.score.should == 0
 	end
 
 	it 'can roll all ones' do 
-		20.times do
-			g.roll(1)
-		end
-		g.score.should == 20
+		game.roll_many(20,1)
+		game.score.should == 20
+	end
+
+	it 'can roll a spare' do 
+		game.roll_spare
+		game.roll(3)
+		game.roll_many(17,0)
 	end
 end

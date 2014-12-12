@@ -40,10 +40,7 @@ class Game
 		@rolls[first_in_frame] + @rolls[first_in_frame+1]==10
 	end
 
-	def roll_spare
-		roll(5)
-		roll(5)
-	end
+	
 
 	def strike?(first_in_frame)
 		@rolls[first_in_frame] == 10
@@ -60,4 +57,16 @@ class Game
 	def two_balls_in_frame(first_in_frame)
 		@rolls[first_in_frame] + @rolls[first_in_frame + 1]
 	end
+
+	def roll_strike
+		roll(10)
+	end
+
+	def roll_spare
+		roll(5)
+		roll(5)
+	end
+
+
+
 end

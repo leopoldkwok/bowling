@@ -10,7 +10,8 @@ describe Game do
 	# 	end
 	# end
 
-	it 'should roll' do
+
+	it 'can roll' do 
 		game.roll(0)
 	end
 
@@ -36,5 +37,10 @@ describe Game do
 		game.roll(4)
 		game.roll_many(16,0)
 		game.score.should == 24
+	end
+
+	it 'can roll a perfect game' do 
+		game.roll_many(12,10)
+		game.score.should ==300
 	end
 end
